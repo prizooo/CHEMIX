@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHEMIX SCHOOL OF BARISTAS AND MIXOLOGISTS | Muscat, Oman</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2C1810;
+            --secondary: #E3B23C;
+            --accent: #6B4D57;
+            --light: #F4F2F3;
+            --dark: #1A110B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44,24,16,0.8), rgba(44,24,16,0.8)),
+                        url('https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .slogan {
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Courses Grid */
+        .courses-section {
+            padding: 4rem 1rem;
+            background: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+
+        .courses-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-tag {
+            background: var(--secondary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        .course-details {
+            margin: 1rem 0;
+        }
+
+        .course-details li {
+            margin-bottom: 0.5rem;
+            list-style-position: inside;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .rules-list {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .rules-list li {
+            margin-bottom: 1rem;
+        }
+
+        /* Enrollment Section */
+        .instructor-profile {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 4rem;
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .instructor-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--light);
+            padding: 4rem 1rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Classroom Gallery */
+        .classroom-gallery {
+            padding: 4rem 1rem;
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-caption {
+            padding: 1rem;
+            text-align: center;
+            background: var(--light);
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--primary);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .submit-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #d39e00;
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1002;
+        }
+
+        .lightbox img {
+            max-height: 90vh;
+            max-width: 90vw;
+            object-fit: contain;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .about-content, .instructor-profile {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head><!-- WhatsApp Float Button -->
+<a href="https://wa.me/9689698214?text=Hi%20CHEMIX%20School,%20I%20want%20course%20details" 
+   style="position:fixed; right:20px; bottom:20px; background:#25D366; color:white; padding:15px; border-radius:50px; z-index:1000;">
+   <i class="fab fa-whatsapp"></i> Chat Now
+</a>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">CHEMIX</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#courses">Courses</a>
+                <a href="#about">About</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+                <a href="#enroll">Enroll</a>
+            </div>
+            <button class="mobile-menu"><i class="fas fa-bars"></i></button>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>CHEMIX SCHOOL OF BARISTAS AND MIXOLOGISTS</h1>
+        <p class="slogan">Brewing the fresh ideas</p>
+        <p>Professional training in Muscat, Oman since 2020</p>
+        <button class="submit-btn" onclick="showEnrollment()">Enroll Now</button>
+    </section>
+
+    <section class="courses-section" id="courses">
+        <h2 class="section-title">Our Professional Courses</h2>
+        <div class="courses-grid">
+            <div class="course-card">
+                <img src="img/mix.jpg" alt="Mixology Course" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Mixology Course</h3>
+                    <div class="price-tag">120 OMR</div>
+                    <ul class="course-details">
+                        <li>Cocktails, mocktails, and shooters</li>
+                        <li>Theory and practical training</li>
+                        <li>Duration: 3 weeks (5 days/week, 2hrs/day)</li>
+                        <li>Weekend classes available</li>
+                    </ul>
+                    <button class="submit-btn" onclick="showEnrollment('Mixology Course')">Enroll Now</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="Full Barista Course" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Full Barista Course</h3>
+                    <div class="price-tag">110 OMR</div>
+                    <ul class="course-details">
+                        <li>Coffee, juices, and mocktails</li>
+                        <li>3 comprehensive courses in one</li>
+                        <li>Duration: 3 weeks (5 days/week, 1-2hrs/day)</li>
+                        <li>Morning/Evening/Weekend sessions</li>
+                    </ul>
+                    <button class="submit-btn" onclick="showEnrollment('Full Barista Course')">Enroll Now</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="img/ice.png" alt="Short Barista Course" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Short Barista Course</h3>
+                    <div class="price-tag">80 OMR</div>
+                    <ul class="course-details">
+                        <li>Steaming milk techniques</li>
+                        <li>Latte art pouring</li>
+                        <li>Iced coffee preparation</li>
+                        <li>Duration: 2 weeks (5 days/week, 1-2hrs/day)</li>
+                    </ul>
+                    <button class="submit-btn" onclick="showEnrollment('Short Barista Course')">Enroll Now</button>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.pexels.com/photos/103566/pexels-photo-103566.jpeg" alt="Juices & Milkshakes Course" class="course-image">
+                <div class="course-content">
+                    <h3 class="course-title">Juices & Milkshakes Course</h3>
+                    <div class="price-tag">40 OMR</div>
+                    <ul class="course-details">
+                        <li>Milkshakes, juices, and smoothies</li>
+                        <li>Sugar syrup preparation</li>
+                        <li>Garnishing techniques</li>
+                        <li>Duration: 1 week (5 days, 1hr/day)</li>
+                    </ul>
+                    <button class="submit-btn" onclick="showEnrollment('Juices & Milkshakes Course')">Enroll Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <h2 class="section-title">About Our School</h2>
+        <div class="about-content">
+            <div>
+                <h3>Our Story</h3>
+                <p>Founded in 2020 by Master Instructor SSEKABIRA CHRISTOPHER, CHEMIX SCHOOL OF BARISTAS AND MIXOLOGISTS has been training professionals in the art of beverage preparation in Muscat, Oman.</p>
+                <p>We offer both on-campus and online classes to accommodate all students.</p>
+                
+                <h3>Requirements</h3>
+                <ul>
+                    <li>Copy of National ID</li>
+                    <li>4 OMR for school T-shirt</li>
+                    <li>10 OMR certificate fee (paid upon completion)</li>
+                </ul>
+            </div>
+            <div class="rules-list">
+                <h3>Rules & Regulations</h3>
+                <ol>
+                    <li>Chemix school offers 4 courses and each course has its own tuition and duration</li>
+                    <li>All payments must be made at the academy in form of cash or bank transfer</li>
+                    <li>If offered accommodation, follow the rules and regulations of the premises</li>
+                    <li>If caught in any theft, legal action shall be taken</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section id="enroll" class="courses-section">
+        <div class="enrollment-header">
+            <h2 class="section-title">Begin Your Beverage Journey</h2>
+            <p>Learn from the best in Muscat and become a certified professional</p>
+        </div>
+
+        <div class="instructor-profile">
+            <img src="img/teacher.jpg" 
+                 alt="Master Instructor SSEKABIRA CHRISTOPHER" class="instructor-image">
+            <div>
+                <h3>Learn From Master Instructor</h3>
+                <h2>SSEKABIRA CHRISTOPHER</h2>
+                <p>With over 12 years of international experience in the beverage industry, SSEKABIRA CHRISTOPHER brings world-class expertise to CHEMIX School. Having worked in premium hotels and cocktail bars across Europe and the Middle East, he founded CHEMIX School in 2020 to share his passion for mixology and barista arts.</p>
+                <p>Christopher's teaching philosophy focuses on:</p>
+                <ul>
+                    <li>Hands-on practical training with professional equipment</li>
+                    <li>Developing creativity alongside technical skills</li>
+                    <li>Understanding the science behind great beverages</li>
+                    <li>Building confidence for real-world bar environments</li>
+                </ul>
+                <p>"My greatest joy is seeing students discover their potential and launch successful careers in this exciting industry."</p>
+            </div>
+        </div>
+
+        <div class="form-container" style="max-width: 800px; margin: 0 auto; background: white; padding: 3rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <h3 style="text-align: center; margin-bottom: 2rem;">Enrollment Form</h3>
+            <form id="enrollmentForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Select Course</label>
+                    <select id="course" required>
+                        <option value="">-- Select a Course --</option>
+                        <option value="Mixology Course">Mixology Course - 120 OMR</option>
+                        <option value="Full Barista Course">Full Barista Course - 110 OMR</option>
+                        <option value="Short Barista Course">Short Barista Course - 80 OMR</option>
+                        <option value="Juices & Milkshakes Course">Juices & Milkshakes Course - 40 OMR</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="schedule">Preferred Schedule</label>
+                    <select id="schedule" required>
+                        <option value="">-- Select Schedule --</option>
+                        <option value="Weekdays Morning">Weekdays Morning</option>
+                        <option value="Weekdays Evening">Weekdays Evening</option>
+                        <option value="Weekends">Weekends</option>
+                        <option value="Online">Online Classes</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="testimonials-section" id="testimonials">
+        <h2 class="section-title">What Our Students Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <img src="img/kite.jpg" 
+                     alt="Maulidi kitenge" class="testimonial-image">
+                <p class="testimonial-text">"CHEMIX School transformed me from a coffee enthusiast to a professional barista. The hands-on training with Master Christopher gave me skills I use every day at my cafe job in Muscat."</p>
+                <p class="testimonial-author">Maulidi kitenge</p>
+                <p>Graduate, Full Barista Course</p>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="img/hannah.jpg" 
+                     alt="Hannah Mukisa" class="testimonial-image">
+                <p class="testimonial-text">"The mixology course exceeded all my expectations! I now create signature cocktails at a luxury hotel. Christopher's patience and expertise made complex techniques easy to learn."</p>
+                <p class="testimonial-author">Hannah Mukisa</p>
+                <p>Graduate, Professional Mixology Course</p>
+            </div>
+
+            <div class="testimonial-card">
+                <img src="img/deo.jpg" 
+                     alt="Deo Kyaligonza" class="testimonial-image">
+                <p class="testimonial-text">"After completing the short barista course, I opened my own coffee cart business. The practical skills and business tips from CHEMIX were invaluable."</p>
+                <p class="testimonial-author">Deo Kyaligonza</p>
+                <p>Graduate, Short Barista Course</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="classroom-gallery" id="gallery">
+        <h2 class="section-title">Classroom Moments</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="img/juice.jpg" 
+                     alt="Students learning mixology techniques" class="gallery-image">
+                <p class="gallery-caption">Smoothie making</p>
+            </div>
+            <div class="gallery-item">
+                <img src="img/han.jpg" 
+                     alt="Barista training session" class="gallery-image">
+                <p class="gallery-caption">Mastering latte art techniques in our barista lab</p>
+            </div>
+            <div class="gallery-item">
+                <img src="img/crew.jpg" 
+                     alt="Group juice preparation class" class="gallery-image">
+                <p class="gallery-caption">group photo after classes</p>
+barista lab</p>
+            </div>
+            <div class="gallery-item">
+                <img src="img/hannah.jpg" 
+                     alt="Group juice preparation class" class="gallery-image">
+                <p class="gallery-caption">meet our best student Hannah</p>
+school logo</p>
+            </div>
+            <div class="gallery-item">
+                <img src="img/logo.jpg" 
+                     alt="Group juice preparation class" class="gallery-image">
+                <p class="gallery-caption">our school logo</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <h2 class="section-title" style="color: white;">Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h3>Address</h3>
+                <p>Muscat, Oman</p>
+            </div>
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p>ssekabirachristopher930@gmail.com</p>
+                <p>luleresty01@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>Phone</h3>
+                <p>+968 9698214</p>
+                <p>+968 92478040</p>
+                <p>+968 78605060</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Modal -->
+    <div class="modal" id="enrollmentModal">
+        <div class="modal-content">
+            <h2>Course Enrollment</h2>
+            <form id="modalEnrollmentForm">
+                <div class="form-group">
+                    <label for="modalFullName">Full Name</label>
+                    <input type="text" id="modalFullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalEmail">Email</label>
+                    <input type="email" id="modalEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalPhone">Phone Number</label>
+                    <input type="tel" id="modalPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="modalCourse">Select Course</label>
+                    <select id="modalCourse" required>
+                        <option value="">-- Select a Course --</option>
+                        <option value="Mixology Course">Mixology Course - 120 OMR</option>
+                        <option value="Full Barista Course">Full Barista Course - 110 OMR</option>
+                        <option value="Short Barista Course">Short Barista Course - 80 OMR</option>
+                        <option value="Juices & Milkshakes Course">Juices & Milkshakes Course - 40 OMR</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Modal Handling
+        function showEnrollment(course) {
+            const modal = document.getElementById('enrollmentModal');
+            if (course) {
+                document.getElementById('modalCourse').value = course;
+            }
+            modal.style.display = 'flex';
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('enrollmentModal')) {
+                document.getElementById('enrollmentModal').style.display = 'none';
+            }
+        }
+
+        // Form Handling
+        document.getElementById('enrollmentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            handleFormSubmission('enrollmentForm');
+        });
+
+        document.getElementById('modalEnrollmentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            handleFormSubmission('modalEnrollmentForm');
+        });
+
+        function handleFormSubmission(formId) {
+            const form = document.getElementById(formId);
+            const formData = {
+                name: form.querySelector('input[type="text"]').value,
+                email: form.querySelector('input[type="email"]').value,
+                phone: form.querySelector('input[type="tel"]').value,
+                course: form.querySelector('select').value
+            };
+            
+            console.log('Form submitted:', formData);
+            alert('Thank you for your application! We will contact you shortly.');
+            
+            if (formId === 'modalEnrollmentForm') {
+                document.getElementById('enrollmentModal').style.display = 'none';
+            }
+            
+            form.reset();
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Lightbox Functionality
+        document.querySelectorAll('.gallery-image').forEach(image => {
+            image.addEventListener('click', function() {
+                const lightbox = document.createElement('div');
+                lightbox.className = 'lightbox';
+                
+                const img = document.createElement('img');
+                img.src = this.src;
+                img.alt = this.alt;
+                
+                lightbox.appendChild(img);
+                lightbox.addEventListener('click', () => {
+                    document.body.removeChild(lightbox);
+                });
+                
+                document.body.appendChild(lightbox);
+            });
+        });
+
+        // Course selection from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const courseParam = urlParams.get('course');
+        if (courseParam) {
+            document.getElementById('course').value = courseParam;
+        }
+    </script>
+</body>
+</html>
